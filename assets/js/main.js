@@ -54,7 +54,7 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-const filterButtons = document.querySelectorAll('.filter');
+const filterButtons = document.querySelectorAll('#projects .filter');
 const projectCards = document.querySelectorAll('.project-card');
 
 filterButtons.forEach(button => {
@@ -65,6 +65,23 @@ filterButtons.forEach(button => {
     projectCards.forEach(card => {
       const categories = card.dataset.category.split(' ');
       card.classList.toggle('hidden', filter !== 'all' && !categories.includes(filter));
+    });
+  });
+});
+
+const certificateFilters = document.querySelectorAll('[data-cert-filter]');
+const certificateCards = document.querySelectorAll('.cert-grid [data-skills]');
+
+certificateFilters.forEach(button => {
+  button.addEventListener('click', () => {
+    certificateFilters.forEach(filter => {
+      const selected = filter === button;
+      filter.classList.toggle('active', selected);
+      filter.setAttribute('aria-pressed', String(selected));
+    });
+    const skill = button.dataset.certFilter;
+    certificateCards.forEach(card => {
+      card.hidden = skill !== 'all' && !card.dataset.skills.split(' ').includes(skill);
     });
   });
 });
