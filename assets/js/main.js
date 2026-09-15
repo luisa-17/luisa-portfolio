@@ -69,4 +69,31 @@ filterButtons.forEach(button => {
   });
 });
 
+const beyondWorkTabs = [...document.querySelectorAll('.beyond-work-tab')];
+
+function activateBeyondWorkTab(selectedTab) {
+  beyondWorkTabs.forEach(tab => {
+    const selected = tab === selectedTab;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+  });
+}
+
+beyondWorkTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateBeyondWorkTab(tab));
+  tab.addEventListener('keydown', event => {
+    let nextIndex;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % beyondWorkTabs.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + beyondWorkTabs.length) % beyondWorkTabs.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = beyondWorkTabs.length - 1;
+    else return;
+
+    event.preventDefault();
+    activateBeyondWorkTab(beyondWorkTabs[nextIndex]);
+    beyondWorkTabs[nextIndex].focus();
+  });
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
