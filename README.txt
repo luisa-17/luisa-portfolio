@@ -7,11 +7,17 @@ How to use
 2. For deployment, upload the whole folder to Netlify, Vercel, GitHub Pages,
    cPanel/public_html, or any standard static web host.
 3. The included resume is in assets/docs/Luisa_Gonzales_Resume.pdf.
+   Website content and this download match the supplied
+   "Luisa Gwyneth Gonzales - Resume.pdf" (updated September 2026).
 
 Customization
 -------------
 - Main theme colors are at the top of assets/css/style.css.
 - Edit portfolio text directly in index.html.
+- When updating your resume, replace the PDF and review the overview,
+  experience, education, scholarship, projects, skills, leadership,
+  volunteering, training, and contact sections in index.html.
+- Portrait and logo files are in assets/images/.
 - This build uses only HTML, CSS, and JavaScript.
 - Google Fonts are loaded from fonts.googleapis.com; if you need fully offline
   fonts, replace them with system fonts in style.css.
