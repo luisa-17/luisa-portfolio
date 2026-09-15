@@ -16,15 +16,32 @@ window.addEventListener('scroll', () => {
   });
 });
 
-menuToggle.addEventListener('click', () => {
-  const open = mainNav.classList.toggle('open');
+function setMenuOpen(open) {
+  mainNav.classList.toggle('open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+}
+
+menuToggle.addEventListener('click', () => {
+  setMenuOpen(!mainNav.classList.contains('open'));
 });
 
 navLinks.forEach(link => link.addEventListener('click', () => {
-  mainNav.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
+  setMenuOpen(false);
 }));
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && mainNav.classList.contains('open')) {
+    setMenuOpen(false);
+    menuToggle.focus();
+  }
+});
+
+document.addEventListener('click', event => {
+  if (!header.contains(event.target)) setMenuOpen(false);
+});
+
+window.matchMedia('(max-width: 860px)').addEventListener('change', () => setMenuOpen(false));
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
