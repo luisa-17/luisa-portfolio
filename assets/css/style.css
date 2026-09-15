@@ -252,6 +252,15 @@ h1 { font-size:clamp(38px,3.7vw,56px); line-height:1.06; max-width: 830px; margi
 .cert-grid div { padding:20px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid var(--border-soft);display:flex;flex-direction:column;gap:5px; }
 .cert-grid strong { font-size:13px; }
 .cert-grid span { color:#8f879a;font-size:11px; }
+.certificate-photo, .volunteer-photo { display:block; width:100%; aspect-ratio:8 / 5; height:auto; border-radius:12px; background:#171020; }
+.certificate-photo { object-fit:contain; margin-bottom:14px; }
+.volunteer-photo { object-fit:cover; }
+.volunteer-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; border:0; }
+.volunteer-gallery .lead-row { display:flex; flex-direction:column; align-items:stretch; gap:14px; padding:20px; border:1px solid var(--border-soft); border-radius:16px; }
+.volunteer-gallery .lead-row:hover { padding-left:20px; }
+@media (max-width:600px) {
+  .volunteer-gallery { grid-template-columns:minmax(0,1fr); }
+}
 
 .contact-section { padding-top:70px; }
 .contact-card {

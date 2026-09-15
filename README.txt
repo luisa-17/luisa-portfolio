@@ -24,6 +24,16 @@ Customization
 
 Notes
 -----
+Adding certificate and volunteering pictures
+-------------------------------------------
+1. Put certificate images in assets/images/certificates/ and event photos
+   in assets/images/volunteering/ (JPG, PNG, or WebP).
+2. In index.html, search for CERTIFICATE: or PHOTO:.
+3. Replace the image src="assets/images/photo-placeholder.svg" beneath
+   that comment with your image path. Each comment suggests a filename.
+4. Update alt to describe your certificate or event photo, then save and refresh.
+   Certificates show the whole image; event photos crop to fill their frame.
+
 This is an original portfolio implementation inspired by the structure and
 interaction patterns of modern dark Bootstrap portfolio templates. It does not
 include or redistribute BootstrapMade's proprietary source files or assets.
