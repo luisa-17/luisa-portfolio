@@ -4,8 +4,8 @@ LUISA GONZALES — PORTFOLIO WEBSITE
 How to use
 ----------
 1. Open index.html in any modern browser.
-2. For deployment, upload the whole folder to Netlify, Vercel, GitHub Pages,
-   cPanel/public_html, or any standard static web host.
+2. Static hosting supports the portfolio and local search. The optional Node server can also serve the portfolio.
+   Do not upload server files or .env to a static public directory.
 3. The included resume is in assets/docs/Luisa_Gonzales_Resume.pdf.
    Website content and this download match the supplied
    "Luisa Gwyneth Gonzales - Resume.pdf" (updated September 2026).
@@ -18,12 +18,21 @@ Customization
   experience, education, scholarship, projects, skills, leadership,
   volunteering, training, and contact sections in index.html.
 - Portrait and logo files are in assets/images/.
-- This build uses only HTML, CSS, and JavaScript.
+- The frontend uses HTML, CSS, and JavaScript; an optional local server uses Node.js.
 - Google Fonts are loaded from fonts.googleapis.com; if you need fully offline
   fonts, replace them with system fonts in style.css.
 
 Notes
 -----
+Lui: offline portfolio guide
+-----------------------------
+Open index.html directly, or run npm.cmd start for an optional local server.
+Lui uses local text matching and conversational templates. No chatbot API,
+key, billing, or network request is used. Messages disappear on page refresh.
+Say "tell me more" to see further matches for the most recent topic.
+Lui is an automated guide, not a person or a generative AI model.
+The .env files are no longer used; keep any old keys private.
+
 Adding certificate and volunteering pictures
 -------------------------------------------
 1. Put certificate images in assets/images/certificates/ and event photos

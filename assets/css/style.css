@@ -1,4 +1,40 @@
 /* Luisa Gonzales Portfolio — original Workfolio-inspired dark portfolio */
+.chat-launcher { position:fixed;right:20px;bottom:20px;z-index:110;padding:13px 18px;min-height:44px;border:1px solid #c084fc;border-radius:999px;background:#58209a;color:white;cursor:pointer;box-shadow:0 8px 30px #0006; }
+.portfolio-chat { position:fixed;right:20px;bottom:80px;z-index:111;width:min(400px,calc(100vw - 28px));max-height:calc(100dvh - 108px);display:flex;flex-direction:column;background:#110d19;border:1px solid #704394;border-radius:18px;box-shadow:0 20px 70px #0009;overflow:hidden; }
+.chat-launcher { display:inline-flex;align-items:center;gap:8px; }
+.chat-launcher img,.chat-avatar img { display:block;flex-shrink:0; }
+.portfolio-chat[hidden],.chat-launcher[hidden] { display:none; }
+.chat-heading { display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #ffffff18; }
+.chat-heading h2 { font-size:18px;margin:0; }
+.chat-heading small,.chat-note { color:#bcb5c5; }
+.chat-heading button { width:44px;height:44px;background:transparent;color:white;border:0;font-size:26px;cursor:pointer; }
+.chat-note { font-size:12px;line-height:1.5;margin:12px 16px; }
+.chat-messages { overflow-y:auto;min-height:90px;max-height:360px;padding:0 16px;overscroll-behavior:contain; }
+.chat-avatar { display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#c084fc);color:white;font-weight:700;flex-shrink:0; }
+.chat-heading { gap:10px; }
+.chat-heading > div { flex:1; }
+.chat-message { width:fit-content;max-width:94%;padding:12px 14px;border-radius:3px 16px 16px 16px;background:#ffffff08;margin:0 20px 14px 0;font-size:13px; }
+.chat-message strong { color:#d8b4fe;font-size:12px; }
+.chat-message p { margin:5px 0;white-space:pre-wrap; }
+.chat-message a { color:#d8b4fe;text-decoration:underline;display:inline-block;padding:8px 0; }
+.chat-user { background:#7135ac;color:white;margin-left:auto;margin-right:0;border-radius:16px 3px 16px 16px; }
+.chat-user strong { color:#f0ddff; }
+.chat-ideas { margin:0 16px 8px;flex-shrink:0; }
+.chat-ideas summary { cursor:pointer;color:#d8b4fe;font-size:12px;min-height:44px;display:flex;align-items:center;gap:8px;list-style:none; }
+.chat-ideas summary::-webkit-details-marker { display:none; }
+.chat-ideas summary::before { content:'+';font-size:18px; }
+.chat-ideas[open] summary::before { content:'−'; }
+.chat-suggestions { display:grid;grid-template-columns:1fr 1fr;gap:4px;max-height:144px;overflow-y:auto;padding-bottom:6px; }
+.chat-suggestions button { text-align:left;background:#ffffff05;color:#ddd7e6;border:0;border-radius:6px;padding:8px;min-height:44px;font-size:12px;cursor:pointer; }
+.chat-suggestions button:hover { background:#a855f724;color:white; }
+.chat-heading,.chat-note,.chat-form { flex-shrink:0; }
+.chat-messages { flex:1 1 auto;scrollbar-width:thin;scrollbar-color:#704394 transparent; }
+.chat-form { padding:0 16px 16px; }
+.chat-input-label { display:block;font-size:12px;margin-bottom:5px;color:#bcb5c5; }
+.chat-form > div { display:flex;gap:8px; }
+.chat-form input { min-width:0;flex:1;background:#08070b;color:white;border:1px solid #ffffff30;border-radius:8px;padding:10px;font:inherit;font-size:16px; }
+.chat-form button { border:0;border-radius:8px;background:#7c3aed;color:white;padding:10px 14px;min-height:44px;cursor:pointer; }
+@media (max-width:600px) { .portfolio-chat { right:14px;bottom:76px; }.chat-launcher { right:14px;bottom:14px; } }
 :root {
   --bg: #08070b;
   --bg-2: #0e0b14;
@@ -260,6 +296,9 @@ h1 { font-size:clamp(30px,3.2vw,46px); line-height:1.12; max-width: 830px; margi
 .lead-row span { color:#8f879a;font-size:11px;text-transform:uppercase;letter-spacing:.08em; }
 .lead-row h3 { margin:5px 0 0;font-size:19px; }
 .lead-row strong { color:#bcb5c5;font-size:13px;font-weight:600; }
+.lead-responsibilities { grid-column:1 / -1;margin:-24px 0 0;padding-left:20px;color:var(--muted);font-size:13px;line-height:1.65; }
+.lead-responsibilities li + li { margin-top:5px; }
+.lead-responsibilities li::marker { color:var(--purple-3); }
 .certs { margin-top:70px; }
 .certificate-filters { flex-wrap:nowrap;gap:24px;overflow-x:auto;border-bottom:1px solid var(--border); }
 .certificate-filters .filter { flex-shrink:0;white-space:nowrap;border:0;border-bottom:2px solid transparent;border-radius:0;padding:12px 0;background:transparent; }
@@ -366,6 +405,7 @@ footer { padding:28px 0 42px; }
   .project-visual { height:280px; }
   .project-body p { min-height:0; }
   .lead-row { grid-template-columns:1fr;gap:10px; }
+  .lead-responsibilities { margin-top:2px; }
   .cert-grid { grid-template-columns:1fr; }
   .hosting-card { grid-template-columns:1fr;padding:20px;gap:20px; }
   .contact-card { padding:36px 26px; }
