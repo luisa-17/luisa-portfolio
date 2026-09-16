@@ -290,6 +290,12 @@ h1 { font-size:clamp(30px,3.2vw,46px); line-height:1.12; max-width: 830px; margi
 .hosting-photo { display:block;width:100%;aspect-ratio:8 / 5;height:auto;object-fit:cover;object-position:center;border-radius:12px;background:#171020; }
 .hosting-card h3 { font-size:23px;margin:0 0 12px; }
 .hosting-card p { color:var(--muted);margin:0; }
+.hosting-slide[hidden] { display:none; }
+.hosting-slider .hosting-photo { object-fit:contain; }
+.hosting-slider-controls { display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px; }
+.hosting-slider-controls button { width:44px;height:44px;flex-shrink:0;border:1px solid var(--border);border-radius:50%;background:var(--purple-soft);color:var(--text);cursor:pointer; }
+.hosting-slider-controls button:hover { border-color:var(--purple); }
+.hosting-slide-status { font-size:12px;color:var(--muted);text-align:center; }
 .leadership-list { border-top:1px solid var(--border-soft); }
 .lead-row { display:grid;grid-template-columns:1fr .8fr;align-items:center;gap:40px;padding:26px 4px;border-bottom:1px solid var(--border-soft);transition:.2s; }
 .lead-row:hover { padding-left:12px;background:linear-gradient(90deg,var(--purple-soft),transparent 55%); }

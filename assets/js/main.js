@@ -113,4 +113,23 @@ beyondWorkTabs.forEach((tab, index) => {
   });
 });
 
+document.querySelectorAll('.hosting-slider').forEach(slider => {
+  const slides = [...slider.querySelectorAll('.hosting-slide')];
+  const status = slider.querySelector('.hosting-slide-status');
+  let current = 0;
+  function showSlide(step) {
+    current = (current + step + slides.length) % slides.length;
+    slides.forEach((slide, index) => { slide.hidden = index !== current; });
+    status.textContent = `Day ${current + 1} · January ${current + 7} · ${current + 1} / ${slides.length}`;
+  }
+  slider.querySelectorAll('[data-slide-step]').forEach(button => {
+    button.addEventListener('click', () => showSlide(Number(button.dataset.slideStep)));
+    button.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      showSlide(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+  });
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
