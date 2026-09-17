@@ -285,8 +285,8 @@ h1 { font-size:clamp(30px,3.2vw,46px); line-height:1.12; max-width: 830px; margi
 .beyond-work-panel[hidden] { display:none; }
 .beyond-work-panel.certs { margin-top:0; }
 .hosting-intro { color:var(--muted);margin:0 0 24px; }
-.hosting-card { display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:28px;padding:24px;border:1px solid var(--border-soft);border-radius:20px;background:var(--panel); }
-.hosting-card + .hosting-card { margin-top:20px; }
+.hosting-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px; }
+.hosting-card { display:flex;flex-direction:column;align-items:stretch;gap:20px;padding:20px;border:1px solid var(--border-soft);border-radius:20px;background:var(--panel); }
 .hosting-photo { display:block;width:100%;aspect-ratio:8 / 5;height:auto;object-fit:cover;object-position:center;border-radius:12px;background:#171020; }
 .hosting-card h3 { font-size:23px;margin:0 0 12px; }
 .hosting-card p { color:var(--muted);margin:0; }
@@ -413,7 +413,7 @@ footer { padding:28px 0 42px; }
   .lead-row { grid-template-columns:1fr;gap:10px; }
   .lead-responsibilities { margin-top:2px; }
   .cert-grid { grid-template-columns:1fr; }
-  .hosting-card { grid-template-columns:1fr;padding:20px;gap:20px; }
+  .hosting-grid { grid-template-columns:minmax(0,1fr); }
   .contact-card { padding:36px 26px; }
   .contact-card h2 { font-size:clamp(26px,4.8vw,34px); }
   .contact-actions { flex-direction:column;align-items:flex-start; }
