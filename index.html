@@ -783,5 +783,15 @@
   </aside>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/chat.js"></script>
+  <script>
+    // Vercel Web Analytics: skip offline files and local development.
+    if (location.protocol === 'https:' && !['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      const analyticsScript = document.createElement('script');
+      analyticsScript.src = '/_vercel/insights/script.js';
+      analyticsScript.defer = true;
+      document.head.appendChild(analyticsScript);
+    }
+  </script>
 </body>
 </html>
