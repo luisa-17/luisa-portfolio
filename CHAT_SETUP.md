@@ -5,7 +5,10 @@ The /api/chat Node function reads the deployed index.html as its reference.
 No API key belongs in client JavaScript, HTML, or committed environment files.
 
 Default model: gemini-2.5-flash. Set GEMINI_MODEL in Vercel to override it
-with a compatible generateContent model supporting thinkingBudget: 0.
+with a compatible text generateContent model. A models/ prefix and surrounding
+spaces are normalized. On a model-not-found response, the server checks the
+Google model catalog and retries once with an available stable Flash model.
+Availability does not guarantee free quota; check your Google project limits.
 Redeploy after changing environment variables.
 
 Online chat sends the current question and up to five recent exchanges to Gemini.

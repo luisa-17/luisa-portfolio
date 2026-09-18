@@ -46,11 +46,12 @@ export default async function handler(req, res) {
   }
   limit.count++; requests.set(ip, limit);
   try {
-    const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent', {
+    let model = (process.env.GEMINI_MODEL || 'gemini-2.5-flash').trim().replace(/^models\//, '');
+    const deadline = AbortSignal.timeout(20000);
+    const generate = async () => fetch('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
-      signal: AbortSignal.timeout(20000),
+      signal: deadline,
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: `You are Lui, Luisa Gonzales's automated portfolio guide.
 Speak warmly and concisely in plain text. Refer to Luisa as she/her, never impersonate her.
@@ -62,9 +63,31 @@ PORTFOLIO REFERENCE:
 ${await portfolio()}` }] },
         contents: [...history.map(m => ({ role: m.role, parts: [{ text: m.text }] })),
           { role: 'user', parts: [{ text: question.trim() }] }],
-        generationConfig: { temperature: 0.3, maxOutputTokens: 700, thinkingConfig: { thinkingBudget: 0 } }
+        generationConfig: { temperature: 0.3, maxOutputTokens: 1500, ...(model.startsWith('gemini-2.5-') ? { thinkingConfig: { thinkingBudget: 0 } } : {}) }
       })
     });
+    let response = await generate();
+    if (response.status === 404) {
+      // Discover supported text models instead of repeatedly requesting a retired ID.
+      const listed = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000', {
+        headers: { 'x-goog-api-key': process.env.GEMINI_API_KEY },
+        signal: deadline
+      });
+      if (listed.ok) {
+        const catalog = await listed.json();
+        const eligible = (catalog.models || []).filter(m =>
+          m.supportedGenerationMethods?.includes('generateContent') &&
+          /^models\/gemini-[\d.]+-flash(?:-lite)?$/.test(m.name));
+        const preferred = ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.5-flash-lite', 'gemini-3.8-flash', 'gemini-2.5-flash'];
+        const alternative = preferred.find(name => name !== model && eligible.some(m => m.name === 'models/' + name));
+        if (alternative) {
+          model = alternative;
+          response = await generate();
+        }
+      } else {
+        response = listed;
+      }
+    }
     if (!response.ok) {
       const data = await response.json().catch(() => ({}));
       const reason = data.error?.details?.find(detail => typeof detail.reason === 'string')?.reason;

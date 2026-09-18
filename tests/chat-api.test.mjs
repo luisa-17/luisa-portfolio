@@ -39,3 +39,34 @@ test('rejects wrong methods, cross-origin requests, and forged system messages',
     [{method:'POST',headers:{},body:{question:'x'.repeat(301)}},400]
   ]) { const res=response(); await handler(req,res); assert.equal(res.code,status); }
 });
+test('normalizes model names and recovers from a model-not-found response', async () => {
+  const savedFetch = global.fetch;
+  const savedKey = process.env.GEMINI_API_KEY;
+  const savedModel = process.env.GEMINI_MODEL;
+  process.env.GEMINI_API_KEY = 'test-only';
+  process.env.GEMINI_MODEL = ' models/retired-model ';
+  const urls = [];
+  try {
+    global.fetch = async (url, options) => {
+      urls.push(url);
+      if (urls.length === 1) return {ok:false,status:404};
+      if (urls.length === 2) return {ok:true,json:async()=>({models:[
+        {name:'models/gemini-2.5-flash-lite',supportedGenerationMethods:['generateContent']},
+        {name:'models/gemini-3.1-flash-image',supportedGenerationMethods:['generateContent']}
+      ]})};
+      assert.equal(JSON.parse(options.body).contents.at(-1).parts[0].text,'Who is she?');
+      return {ok:true,json:async()=>({candidates:[{finishReason:'STOP',content:{parts:[{text:'She is Luisa Gonzales.'}]}}]})};
+    };
+    const res=response();
+    await handler({method:'POST',headers:{},body:{question:'Who is she?'}},res);
+    assert.equal(res.code,200);
+    assert.match(urls[0],/models\/retired-model:generateContent$/);
+    assert.match(urls[2],/gemini-2.5-flash-lite:generateContent$/);
+    assert.equal(urls.length,3);
+  } finally {
+    global.fetch=savedFetch;
+    for (const [name,value] of [['GEMINI_API_KEY',savedKey],['GEMINI_MODEL',savedModel]]) {
+      if(value === undefined) delete process.env[name]; else process.env[name]=value;
+    }
+  }
+});
