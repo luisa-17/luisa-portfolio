@@ -36,10 +36,48 @@
     return item;
   }
 
-  function ask(question) {
+  let busy = false;
+  let history = [];
+  async function ask(question) {
+    question = question.trim().slice(0, 300);
+    if (!question || busy) return;
+    message(question, true);
+    if (location.protocol === 'file:' || !navigator.onLine) {
+      history = [];
+      offlineAsk(question);
+      return;
+    }
+    busy = true;
+    const buttons = [...form.querySelectorAll('button'), ...document.querySelectorAll('.chat-suggestions button')];
+    buttons.forEach(button => { button.disabled = true; });
+    const pending = message('Let me check her portfolio...');
+    log.scrollTop = log.scrollHeight;
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question, history }),
+        signal: AbortSignal.timeout(25000)
+      });
+      if (!response.ok) throw new Error('Unavailable');
+      const data = await response.json();
+      if (typeof data.answer !== 'string' || !data.answer.trim()) throw new Error('Empty answer');
+      pending.querySelector('p').textContent = data.answer;
+      history = [...history, { role: 'user', text: question }, { role: 'model', text: data.answer }].slice(-10);
+    } catch {
+      pending.querySelector('p').textContent = 'Online chat is unavailable. Here are local results; follow-up context is not available in this mode.';
+      history = [];
+      offlineAsk(question);
+    } finally {
+      busy = false;
+      buttons.forEach(button => { button.disabled = false; });
+      log.scrollTop = log.scrollHeight;
+    }
+  }
+  function offlineAsk(question) {
     question = question.trim().slice(0, 300);
     if (!question) return;
-    message(question, true);
+
     if (/^(hi|hello|hey)[!. ]*$/i.test(question)) {
       message('Hi there! I’m Lui, Luisa’s offline portfolio guide. Want to explore her work, skills, or projects?');
     } else if (/^(thanks|thank you|thank you lui)[!. ]*$/i.test(question)) {

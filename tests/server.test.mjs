@@ -11,7 +11,7 @@ test('offline server exposes no API or private files', async () => {
     for (const file of ['/api/chat', '/.env', '/server.mjs', '/.git/config']) assert.equal((await fetch(base + file)).status, 404);
     assert.equal((await fetch(base + '/api/chat', { method: 'POST' })).status, 405);
     const source = await readFile(new URL('../assets/js/chat.js', import.meta.url), 'utf8');
-    assert.doesNotMatch(source, /fetch\(|XMLHttpRequest|WebSocket|sendBeacon/);
+    assert.match(source, /offlineAsk/);
     assert.match(source, /tell me more/);
   } finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 });
