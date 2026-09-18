@@ -51,7 +51,7 @@ test('normalizes model names and recovers from a model-not-found response', asyn
       urls.push(url);
       if (urls.length === 1) return {ok:false,status:404};
       if (urls.length === 2) return {ok:true,json:async()=>({models:[
-        {name:'models/gemini-2.5-flash-lite',supportedGenerationMethods:['generateContent']},
+        {name:'models/gemini-2.0-flash-001',supportedGenerationMethods:['generateContent']},
         {name:'models/gemini-3.1-flash-image',supportedGenerationMethods:['generateContent']}
       ]})};
       assert.equal(JSON.parse(options.body).contents.at(-1).parts[0].text,'Who is she?');
@@ -61,7 +61,7 @@ test('normalizes model names and recovers from a model-not-found response', asyn
     await handler({method:'POST',headers:{},body:{question:'Who is she?'}},res);
     assert.equal(res.code,200);
     assert.match(urls[0],/models\/retired-model:generateContent$/);
-    assert.match(urls[2],/gemini-2.5-flash-lite:generateContent$/);
+    assert.match(urls[2],/gemini-2.0-flash-001:generateContent$/);
     assert.equal(urls.length,3);
   } finally {
     global.fetch=savedFetch;

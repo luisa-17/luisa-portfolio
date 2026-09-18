@@ -77,13 +77,22 @@ ${await portfolio()}` }] },
         const catalog = await listed.json();
         const eligible = (catalog.models || []).filter(m =>
           m.supportedGenerationMethods?.includes('generateContent') &&
-          /^models\/gemini-[\d.]+-flash(?:-lite)?$/.test(m.name));
-        const preferred = ['gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.5-flash-lite', 'gemini-3.8-flash', 'gemini-2.5-flash'];
-        const alternative = preferred.find(name => name !== model && eligible.some(m => m.name === 'models/' + name));
-        if (alternative) {
+          /^models\/gemini-[a-z0-9.-]*flash[a-z0-9.-]*$/.test(m.name) &&
+          !/image|audio|tts|live|robotics|computer|research/.test(m.name))
+          .map(m => m.name.replace(/^models\//, ''))
+          .filter(name => name !== model)
+          .sort((a, b) => {
+            const rank = name => (/preview|exp/.test(name) ? 10 : 0) + (name.includes('lite') ? 0 : 1);
+            return rank(a) - rank(b) || b.localeCompare(a, undefined, { numeric: true });
+          });
+        console.info('Lui model discovery:', JSON.stringify({ requested: model, candidates: eligible.slice(0, 8) }));
+        // Retry only model-not-found errors, never authentication or quota failures.
+        for (const alternative of eligible.slice(0, 3)) {
           model = alternative;
           response = await generate();
+          if (response.status !== 404) break;
         }
+
       } else {
         response = listed;
       }
@@ -96,7 +105,7 @@ ${await portfolio()}` }] },
         : response.status === 404 ? 'MODEL_UNAVAILABLE'
         : [401, 403].includes(response.status) || ['API_KEY_INVALID', 'API_KEY_EXPIRED', 'API_KEY_SERVICE_BLOCKED'].includes(reason) ? 'KEY_REJECTED'
         : response.status === 400 ? 'PROVIDER_CONFIGURATION' : 'PROVIDER_UNAVAILABLE';
-      console.warn('Lui API:', code, response.status);
+      console.warn('Lui API:', code, response.status, 'model:', model);
       return send(response.status === 429 ? 429 : 502, 'Online chat is temporarily unavailable.', code);
     }
     const data = await response.json();

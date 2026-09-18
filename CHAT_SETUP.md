@@ -7,7 +7,8 @@ No API key belongs in client JavaScript, HTML, or committed environment files.
 Default model: gemini-2.5-flash. Set GEMINI_MODEL in Vercel to override it
 with a compatible text generateContent model. A models/ prefix and surrounding
 spaces are normalized. On a model-not-found response, the server checks the
-Google model catalog and retries once with an available stable Flash model.
+Google model catalog and tries up to three listed text Flash models, preferring stable and Lite models.
+Vercel function logs show the requested model and discovered candidates, never keys.
 Availability does not guarantee free quota; check your Google project limits.
 Redeploy after changing environment variables.
 
