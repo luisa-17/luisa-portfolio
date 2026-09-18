@@ -59,13 +59,25 @@
         body: JSON.stringify({ question, history }),
         signal: AbortSignal.timeout(25000)
       });
-      if (!response.ok) throw new Error('Unavailable');
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.code || (response.status === 404 ? 'API_NOT_DEPLOYED' : 'CHAT_ERROR'));
       if (typeof data.answer !== 'string' || !data.answer.trim()) throw new Error('Empty answer');
       pending.querySelector('p').textContent = data.answer;
       history = [...history, { role: 'user', text: question }, { role: 'model', text: data.answer }].slice(-10);
-    } catch {
-      pending.querySelector('p').textContent = 'Online chat is unavailable. Here are local results; follow-up context is not available in this mode.';
+    } catch (error) {
+      const reasons = {
+        NOT_CONFIGURED: 'Online chat is not configured yet.',
+        KEY_REJECTED: 'The AI service could not authenticate.',
+        QUOTA_LIMIT: 'The AI usage limit has been reached. Please try again later.',
+        MODEL_UNAVAILABLE: 'The configured AI model is unavailable.',
+        PROVIDER_CONFIGURATION: 'The AI connection needs a configuration update.',
+        REFERENCE_UNAVAILABLE: 'The online portfolio reference is unavailable.',
+        API_NOT_DEPLOYED: 'Online chat is not available on this server.',
+        TIMEOUT: 'The AI service took too long to respond.',
+        TimeoutError: 'The AI service took too long to respond.'
+      };
+      pending.querySelector('p').textContent = (reasons[error.message] || reasons[error.name] || 'Online chat is temporarily unavailable.') + ' Using local portfolio information instead.';
+      console.warn('Lui online chat:', reasons[error.message] ? error.message : 'CHAT_UNAVAILABLE');
       history = [];
       offlineAsk(question);
     } finally {
@@ -87,6 +99,10 @@
     } else if (/^(tell me more|more|go on|what else|continue)[?!. ]*$/i.test(question)) {
       if (nextMatch < lastMatches.length) showMatches(lastMatches.slice(nextMatch, nextMatch += 2));
       else message('That’s all I found for that topic. Try asking about another skill, employer, or project.');
+    } else if (/^(?:what (?:do you )?know about|tell me about|who is|introduce|give me (?:an overview|a summary) (?:of|about)) (?:her|luisa|luisa gonzales)[?!. ]*$/i.test(question)) {
+      const overview = document.querySelector('.hero-lead')?.textContent.trim()
+        .replace(/I[?']m Luisa Gwyneth D\. Gonzales,/, 'Luisa Gwyneth D. Gonzales is');
+      message(overview || 'She is Luisa Gonzales. You can explore her experience, skills, and projects in this portfolio.');
     } else localAnswer(question);
     log.scrollTop = log.scrollHeight;
   }
