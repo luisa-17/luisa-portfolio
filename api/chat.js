@@ -6,8 +6,8 @@ const requests = new Map();
 let reference;
 async function portfolio() {
   if (!reference) {
-    const html = await readFile(path.join(process.cwd(), 'index.html'), 'utf8');
-    reference = html.split('<main>')[1].split('</main>')[0]
+    const pages = await Promise.all(['index.html', 'leadership.html'].map(file => readFile(path.join(process.cwd(), file), 'utf8')));
+    reference = pages.map(html => html.split('<main>')[1].split('</main>')[0]).join('\n')
       .replace(/<svg[\s\S]*?<\/svg>/g, '')
       .replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&')
       .replace(/&mdash;/g, '-').replace(/&middot;/g, ' ? ')

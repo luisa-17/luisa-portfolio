@@ -13,6 +13,7 @@ test('Gemini request uses server reference and preserves follow-up history', asy
       assert.match(url, /generateContent$/);
       assert.equal(options.headers['x-goog-api-key'],'test-only');
       assert.match(body.systemInstruction.parts[0].text,/PawMatch/);
+      assert.match(body.systemInstruction.parts[0].text,/Echelon Philippines 2025/);
       assert.match(body.systemInstruction.parts[0].text,/she\/her/);
       assert.equal(body.contents[2].parts[0].text,'Which tools did she use?');
       return {ok:true,json:async()=>({candidates:[{finishReason:'STOP',content:{parts:[{text:'She used Power Automate.'}]}}]})};

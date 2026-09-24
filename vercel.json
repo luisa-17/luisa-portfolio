@@ -1,1 +1,7 @@
-{"functions":{"api/chat.js":{"includeFiles":"index.html","maxDuration":30}}}
+{
+  "functions": { "api/chat.js": { "includeFiles": "{index,leadership}.html", "maxDuration": 30 } },
+  "rewrites": [
+    { "source": "/leadership", "destination": "/leadership.html" },
+    { "source": "/leadership/", "destination": "/leadership.html" }
+  ]
+}

@@ -1,47 +1,54 @@
+// Keep direct file browsing usable while retaining the hosted /leadership route.
+if (location.protocol !== 'file:') {
+  document.querySelectorAll('[data-leadership-link]').forEach(link => { link.href = '/leadership'; });
+}
+
 const header = document.getElementById('siteHeader');
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
 const navLinks = [...document.querySelectorAll('.nav a')];
 const sections = [...document.querySelectorAll('main section[id]')];
 
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 30);
+if (header && menuToggle && mainNav) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
 
-  let current = 'home';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 180) current = section.id;
+    let current = 'home';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 180) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
   });
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-  });
-});
 
-function setMenuOpen(open) {
-  mainNav.classList.toggle('open', open);
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-}
-
-menuToggle.addEventListener('click', () => {
-  setMenuOpen(!mainNav.classList.contains('open'));
-});
-
-navLinks.forEach(link => link.addEventListener('click', () => {
-  setMenuOpen(false);
-}));
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && mainNav.classList.contains('open')) {
-    setMenuOpen(false);
-    menuToggle.focus();
+  function setMenuOpen(open) {
+    mainNav.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   }
-});
 
-document.addEventListener('click', event => {
-  if (!header.contains(event.target)) setMenuOpen(false);
-});
+  menuToggle.addEventListener('click', () => {
+    setMenuOpen(!mainNav.classList.contains('open'));
+  });
 
-window.matchMedia('(max-width: 860px)').addEventListener('change', () => setMenuOpen(false));
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    setMenuOpen(false);
+  }));
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mainNav.classList.contains('open')) {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+
+  window.matchMedia('(max-width: 860px)').addEventListener('change', () => setMenuOpen(false));
+}
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {

@@ -3,17 +3,20 @@ LUISA GONZALES — PORTFOLIO WEBSITE
 
 How to use
 ----------
-1. Open index.html in any modern browser.
+1. Run npm.cmd start, then open http://localhost:3000.
+   The main IT portfolio is at / and Leadership & Involvement is at /leadership.
+   Vercel routing is configured in vercel.json. Other static hosts should map
+   /leadership and /leadership/ to leadership.html.
 2. Static hosting supports the portfolio and local search. The optional Node server can also serve the portfolio.
    Do not upload server files or .env to a static public directory.
-3. The included resume is in assets/docs/Luisa_Gonzales_Resume.pdf.
+3. The included resume is in assets/docs/Luisa Gwyneth Gonzales Resume.pdf.
    Website content and this download match the supplied
    "Luisa Gwyneth Gonzales - Resume.pdf" (updated September 2026).
 
 Customization
 -------------
 - Main theme colors are at the top of assets/css/style.css.
-- Edit portfolio text directly in index.html.
+- Edit professional portfolio text in index.html and community content in leadership.html.
 - When updating your resume, replace the PDF and review the overview,
   experience, education, scholarship, projects, skills, leadership,
   volunteering, training, and contact sections in index.html.

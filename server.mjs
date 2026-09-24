@@ -11,8 +11,9 @@ export function createServer() {
       const url = new URL(req.url, 'http://localhost');
       if (!['GET', 'HEAD'].includes(req.method)) return send(res, 405, { error: 'Method not allowed.' });
       const requested = decodeURIComponent(url.pathname);
-      if (requested !== '/' && requested !== '/index.html' && !/^\/assets\/[a-zA-Z0-9_./ -]+$/.test(requested)) return send(res, 404, { error: 'Not found.' });
-      const file = path.resolve(root, '.' + (requested === '/' ? '/index.html' : requested));
+      const pages = { '/': '/index.html', '/index.html': '/index.html', '/leadership': '/leadership.html', '/leadership/': '/leadership.html', '/leadership.html': '/leadership.html' };
+      if (!Object.hasOwn(pages, requested) && !/^\/assets\/[a-zA-Z0-9_./ -]+$/.test(requested)) return send(res, 404, { error: 'Not found.' });
+      const file = path.resolve(root, '.' + (pages[requested] || requested));
       if (!file.startsWith(root + path.sep)) return send(res, 404, { error: 'Not found.' });
       const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.jfif': 'image/jpeg', '.svg': 'image/svg+xml', '.pdf': 'application/pdf' };
       if (!types[path.extname(file)]) return send(res, 404, { error: 'Not found.' });

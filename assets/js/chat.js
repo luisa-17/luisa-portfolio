@@ -8,7 +8,7 @@
   let nextMatch = 0;
   const stopWords = new Set('a an the is are was were do does did what which who where when how can could would you your she her luisa gonzales about tell me please has have had and or of in on at to for with i s'.split(' '));
   const tokens = text => text.toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ').filter(word => word && !stopWords.has(word));
-  const selectors = '.hero-lead, .about-panel, .mini-card, .skill-group, .timeline-item, .project-card, #leadership .lead-row, .volunteer-gallery .lead-row, .hosting-card, .cert-grid > div, .contact-card';
+  const selectors = '.hero-lead, .about-panel, .mini-card, .skill-group, .timeline-item, .project-card, .lead-row, .hosting-card, .cert-grid > div, .contact-card';
   const records = [...document.querySelectorAll(selectors)].map(element => {
     const copy = element.cloneNode(true);
     copy.querySelectorAll('img, button, .project-visual').forEach(node => node.remove());
@@ -16,7 +16,7 @@
     const text = copy.textContent.replace(/\s+/g, ' ').trim();
     const section = element.closest('section');
     const group = element.closest('[role="tabpanel"]');
-    const category = element.matches('.cert-grid > div') ? 'certification certificate training courses' : element.matches('.skill-group') ? 'skills toolkit technologies' : section.id === 'experience' && element.querySelector('li') ? 'experience work employment internship' : section.id === 'projects' ? 'projects' : section.id === 'leadership' ? 'leadership organizations roles' : group?.id === 'hosting-panel' ? 'hosting events' : group?.id === 'volunteering-panel' ? 'volunteering' : section.id === 'contact' ? 'contact email phone location linkedin' : '';
+    const category = element.matches('.cert-grid > div') ? 'certification certificate training courses' : element.matches('.skill-group') ? 'skills toolkit technologies' : section.id === 'experience' && element.querySelector('li') ? 'experience work employment internship' : section.id === 'projects' ? 'projects' : ['leadership', 'technology-communities'].includes(section.id) ? 'leadership organizations roles communities' : section.id === 'hosting' ? 'hosting events' : section.id === 'events-production' ? 'volunteering events production' : section.id === 'contact' ? 'contact email phone location linkedin' : '';
     const timelineHeading = element.closest('.timeline')?.previousElementSibling;
     const topic = timelineHeading?.matches('.timeline-heading') ? timelineHeading.textContent : '';
     return { element, text, group, section, words: new Set(tokens(`${text} ${category} ${topic}`)) };
@@ -177,6 +177,11 @@
           if (record.group) document.getElementById(record.group.getAttribute('aria-labelledby')).click();
           if (record.element.matches('.cert-grid > div')) document.querySelector('[data-cert-filter="all"]').click();
           if (record.element.matches('.project-card')) document.querySelector('#projects [data-filter="all"]').click();
+          let disclosure = record.element.closest('details');
+          while (disclosure) {
+            disclosure.open = true;
+            disclosure = disclosure.parentElement.closest('details');
+          }
           setOpen(false);
           record.element.scrollIntoView({ block: 'center' });
           record.element.setAttribute('tabindex', '-1');
