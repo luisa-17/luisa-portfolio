@@ -25,7 +25,10 @@ test('leadership routes support direct visits and shared assets', async () => {
       const response = await fetch(base + route);
       assert.equal(response.status, 200);
       const html = await response.text();
-      assert.match(html, /Leadership &amp; Involvement/);
+      assert.match(html, /Leadership &amp; Community/);
+      assert.doesNotMatch(html, /<section[^>]*id="events-initiatives"/);
+      assert.equal([...html.matchAll(/<article class="hosting-card"/g)].length, 8);
+      assert.match(html, /role-featured/);
       for (const id of ['leadership', 'technology-communities', 'events-initiatives', 'hosting', 'events-production']) {
         assert.ok(html.includes(`id="${id}"`), id);
       }

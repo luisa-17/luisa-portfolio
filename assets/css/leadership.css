@@ -1,0 +1,70 @@
+/* Only loaded by /leadership. Shared branding, footer, and controls stay intact. */
+.community-page .section { padding:80px 0; }
+.community-page .involvement-hero { padding:70px 0 64px; min-height:auto; }
+.community-page .involvement-hero .kicker { margin-top:52px; font-size:11px; letter-spacing:.18em; }
+.community-page .involvement-hero h1 { font-size:clamp(36px,5.5vw,66px); max-width:950px; }
+.community-page .involvement-hero .hero-lead { font-size:17px; max-width:620px; }
+.community-page .section-heading { gap:40px; margin-bottom:36px; }
+.community-page .section-heading h2 { font-size:clamp(28px,3.4vw,42px); }
+.community-page .section-index { margin-bottom:12px; }
+.community-page #leadership { border-top:1px solid var(--border-soft); }
+.community-page .role-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.community-page .role-card { display:flex; flex-direction:column; align-items:stretch; gap:14px; padding:24px 0; border-bottom:1px solid var(--border-soft); }
+.community-page .role-card:hover { padding-left:0; }
+.community-page .role-card h3 { font-size:25px; line-height:1.25; margin:10px 0 0; }
+.community-page .role-card strong { color:var(--purple-3); font-size:13px; }
+.community-page .role-card .lead-responsibilities { margin:0; padding-left:18px; }
+.community-page .role-featured { grid-column:1 / -1; padding:32px; border:0; border-left:3px solid var(--purple); background:linear-gradient(100deg,rgba(124,58,237,.13),transparent); }
+.community-page .role-featured:hover { padding-left:32px; }
+.community-page .role-featured h3 { font-size:clamp(28px,3.4vw,38px); }
+.community-page .role-featured .lead-responsibilities { max-width:800px; }
+.community-page .community-disclosure { margin-top:28px; border-block:1px solid var(--border-soft); }
+.community-page .community-disclosure > summary { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 0; cursor:pointer; list-style:none; font-weight:600; }
+.community-page .community-disclosure > summary::-webkit-details-marker { display:none; }
+.community-page .community-disclosure > summary > span { color:var(--purple-3); transition:transform .2s; }
+.community-page .community-disclosure[open] > summary > span { transform:rotate(180deg); }
+.community-page .community-disclosure[open] { padding-bottom:28px; }
+.community-page .secondary-roles .role-card h3 { font-size:21px; }
+.community-page .community-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px 28px; }
+.community-page .community-card { display:flex; flex-direction:column; align-items:stretch; gap:12px; border:0; border-top:1px solid var(--border); padding:24px 0; }
+.community-page .community-card:hover { padding-left:0; }
+.community-page .community-card h3 { font-size:21px; line-height:1.3; margin:0; }
+.community-page .community-card p { margin:0; color:var(--muted); }
+.community-page .community-card .text-link { margin-top:auto; }
+.community-page .community-focus { font-size:11px; color:var(--purple-3); text-transform:uppercase; letter-spacing:.08em; }
+.community-page .community-card strong { font-size:13px; color:var(--purple-3); }
+.community-page .community-card .lead-responsibilities { padding-left:18px; margin:0; }
+.community-page #hosting { background:linear-gradient(180deg,rgba(124,58,237,.045),transparent); }
+.community-page .hosting-grid { gap:36px 28px; }
+.community-page .hosting-card { padding:0; border:0; border-radius:0; background:transparent; gap:20px; }
+.community-page .hosting-card h3 { font-size:clamp(20px,2.2vw,27px); line-height:1.25; }
+.community-page .hosting-photo,
+.community-page .hosting-slider .hosting-photo,
+.community-page .volunteer-photo { width:100%; aspect-ratio:8 / 5; object-fit:cover; object-position:center; border-radius:12px; }
+.community-page .hosting-photo { transition:filter .25s; }
+.community-page .hosting-card:hover .hosting-photo { filter:brightness(1.08); }
+.community-page .hosting-card .section-index { font-size:10px; letter-spacing:.08em; }
+.community-page .event-role { display:block; margin:0 0 8px; color:var(--purple-3); font-size:12px; font-weight:600; }
+.community-page .hosting-inquiry { margin:36px 0 0; }
+.community-page .volunteer-gallery { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+.community-page .volunteer-gallery .lead-row { padding:0; border:0; border-radius:0; gap:12px; }
+.community-page .volunteer-gallery .lead-row:hover { padding-left:0; }
+.community-page .volunteer-gallery h3 { font-size:18px; margin:6px 0 0; }
+.community-page .volunteer-gallery strong { font-size:12px; line-height:1.6; }
+.community-page .community-return { padding-bottom:60px; }
+.community-page .legacy-anchor { display:block; scroll-margin-top:32px; }
+@media (max-width:980px) {
+  .community-page .community-grid, .community-page .volunteer-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:600px) {
+  .community-page .section { padding:54px 0; }
+  .community-page .involvement-hero { padding:36px 0 44px; }
+  .community-page .involvement-hero .kicker { margin-top:36px; }
+  .community-page .role-grid, .community-page .community-grid, .community-page .hosting-grid, .community-page .volunteer-gallery { grid-template-columns:minmax(0,1fr); }
+  .community-page .role-featured, .community-page .role-featured:hover { padding:24px; }
+  .community-page .section-heading { gap:20px; }
+  .community-page .role-card h3 { font-size:23px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .community-page .hosting-photo, .community-page .community-disclosure > summary > span { transition:none; }
+}
