@@ -34,7 +34,7 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <a class="btn btn-small desktop-cta" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" download>Resume ↗</a>
+      <a class="btn btn-small desktop-cta" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume ↗</a>
     </div>
   </header>
 
@@ -50,14 +50,15 @@
           <p class="hero-lead">I’m Luisa Gwyneth D. Gonzales, a System Engineer and a Magna Cum Laude IT graduate, with experience in full-stack development, software testing, analytics, and automation.</p>
           <div class="hero-actions">
             <a class="btn" href="#projects">View Projects</a>
-            <a class="text-link" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" download>Download Resume <span>↓</span></a>
+            <a class="text-link" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume <span>↗</span></a>
             <a class="btn" href="leadership.html" data-leadership-link>Explore my involvement ↗</a>
           </div>
 
           <div class="hero-meta">
-            <div><strong>1.35</strong><span>College OGWA</span></div>
-            <div><strong>6</strong><span>Featured technical projects</span></div>
-            <div><strong>2026</strong><span>BS Information Technology</span></div>
+            <div><strong data-portfolio-kpi="projects">?</strong><span>Featured Projects</span></div>
+            <div><strong data-portfolio-kpi="tools">?</strong><span>Technologies &amp; Tools</span></div>
+            <div><strong data-portfolio-kpi="roles">?</strong><span>Professional Roles</span></div>
+            <div><strong data-portfolio-kpi="graduation">?</strong><span>BS Information Technology</span></div>
           </div>
         </div>
 
@@ -106,7 +107,7 @@
           <article class="about-panel glass reveal">
             <p class="large-copy">I combine hands-on development with <span class="purple">data-driven problem solving</span> and a project-management mindset.</p>
             <p>At ACTech2, I develop client websites across frontend and backend systems and perform automated and manual testing. Previously, at Accenture Philippines, I built operational tools, data pipelines, dashboards, and an AI-powered reporting agent. My technical projects span AR, IoT, and web development.</p>
-            <a class="text-link" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" download>Download my resume <span>↓</span></a>
+            <a class="text-link" href="assets/docs/Luisa Gwyneth Gonzales Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume <span>↗</span></a>
           </article>
 
           <div class="expertise-grid reveal delay-1">
@@ -132,31 +133,31 @@
             </article>
           </div>
         </div>
-        <h3 class="timeline-heading">Education</h3>
-        <div class="timeline">
+        <h3 class="timeline-heading education-heading">Education <span>Academic background</span></h3>
+        <div class="timeline education-grid">
           <article class="timeline-item reveal">
-            <div class="timeline-date">Aug 2026</div>
+            <div class="timeline-date"><time data-degree-date datetime="2026-08">Aug 2026</time> <span class="education-honor">Magna Cum Laude</span></div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <span class="company">Pamantasan ng Lungsod ng Maynila · Manila, Philippines</span>
-              <h3>BS Information Technology · Magna Cum Laude</h3>
+              <h3>BS Information Technology</h3>
               <p>Graduated with a 1.35 OGWA and was a Dean’s Lister from 2022 to 2026.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
-            <div class="timeline-date">Jul 2022</div>
+            <div class="timeline-date">Jul 2022 <span class="education-honor">With High Honors</span></div>
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-content">
               <span class="company">Universidad de Manila · Manila, Philippines</span>
               <h3>Senior High School · STEM</h3>
-              <p>With High Honors · 96 OGWA.</p>
+              <p>96 OGWA.</p>
             </div>
           </article>
         </div>
       </div>
 
 
-    <details class="about-details container"><summary>Technical capabilities — development, data &amp; automation</summary>
+    <details class="about-details container"><summary><span>Technical capabilities — development, data &amp; automation</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
       <div class="details-content">
         <div class="section-heading reveal">
           <div>
@@ -222,7 +223,7 @@
       </div>
     </details>
 
-    <details class="about-details container"><summary>Technical Skills / Toolkit — languages, platforms &amp; tools</summary>
+    <details class="about-details container"><summary><span>Technical Skills / Toolkit — languages, platforms &amp; tools</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
       <div class="details-content">
         <div class="section-heading reveal">
           <div>
@@ -341,10 +342,10 @@
           <div class="skill-group">
             <span class="skill-label">IoT & Hardware</span>
             <div class="skill-list">
-              <span>ESP32</span><span>MQTT</span><span>Sensor Integration</span>
+              <span>ESP32</span><span>MQTT</span><span data-competency>Sensor Integration</span>
             </div>
           </div>
-          <div class="skill-group">
+          <div class="skill-group" data-competencies>
             <span class="skill-label">Core Competencies</span>
             <div class="skill-list">
               <span>Data Analytics</span><span>IT Operations</span><span>Backend Development</span><span>Project Management</span><span>Leadership</span><span>Problem-Solving</span>
@@ -696,6 +697,7 @@
     <details class="chat-ideas" id="chatIdeas"><summary>Ideas to ask Lui</summary><div class="chat-suggestions" aria-label="Suggested questions"><button type="button">Accenture experience</button><button type="button">Programming skills</button><button type="button">Projects</button><button type="button">Certifications</button><button type="button">Contact</button><button type="button">Tell me more</button></div></details>
     <form id="chatForm" class="chat-form"><label class="chat-input-label" for="chatQuestion">Your question</label><div><input id="chatQuestion" type="text" maxlength="300" placeholder="Ask about skills, work, or education…" autocomplete="off" required><button type="submit">Ask</button></div></form>
   </aside>
+  <script src="assets/js/kpis.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/chat.js"></script>
   <script>

@@ -78,7 +78,18 @@ main :where(div, article), .section-heading > *, .lead-row > * { min-width: 0; }
 .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .section { padding: 118px 0; position: relative; }
 .about-details { margin-top:24px; border:1px solid var(--border-soft); border-radius:20px; background:var(--panel); }
-.about-details > summary { padding:22px; cursor:pointer; font-family:var(--display); font-size:18px; color:var(--text); }
+.about-details > summary { padding:24px; cursor:pointer; font-family:var(--display); color:var(--text); display:flex; align-items:center; gap:18px; list-style:none; }
+.about-details > summary::-webkit-details-marker { display:none; }
+.about-details { transition:border-color .2s, background .2s; }
+.about-details:hover, .about-details[open] { border-color:rgba(192,132,252,.35); }
+.about-details[open] > summary { border-bottom:1px solid var(--border-soft); margin-bottom:24px; }
+.disclosure-icon { display:grid; place-items:center; flex:0 0 46px; height:46px; border:1px solid rgba(192,132,252,.2); border-radius:14px; background:var(--purple-soft); color:var(--purple-3); font-size:18px; }
+.disclosure-copy { display:flex; flex-direction:column; gap:3px; }
+.disclosure-copy strong { font-size:18px; font-weight:600; }
+.disclosure-copy > span { font:13px/1.5 var(--font); color:var(--muted); }
+.disclosure-toggle { flex:0 0 30px; height:30px; margin-left:auto; border:1px solid var(--border-soft); border-radius:50%; display:grid; place-items:center; color:var(--purple-3); }
+.disclosure-toggle::before { content:''; width:8px; height:8px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:translateY(-2px) rotate(45deg); transition:transform .2s; }
+.about-details[open] .disclosure-toggle::before { transform:translateY(2px) rotate(225deg); }
 summary:focus-visible { outline:2px solid var(--purple-3); outline-offset:4px; }
 .details-content { padding:12px 24px 28px; }
 .details-content .section-heading { margin-bottom:28px; }
@@ -182,7 +193,7 @@ h1 { font-size:clamp(30px,3.2vw,46px); line-height:1.12; max-width: 830px; margi
 }
 .hero-lead { max-width: 700px; color:var(--muted); font-size:14px; margin:0 0 24px; }
 .hero-actions { display:flex; flex-wrap:wrap; gap:26px; align-items:center; }
-.hero-meta { display:flex; gap:32px; margin-top:30px; padding-top:18px; border-top:1px solid var(--border-soft); }
+.hero-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:30px; padding-top:18px; border-top:1px solid var(--border-soft); }
 .hero-meta div { display:flex; flex-direction:column; }
 .hero-meta strong { font-family:var(--display); font-size:25px; }
 .hero-meta span { color:var(--muted); font-size:12px; margin-top:2px; }
@@ -426,7 +437,7 @@ footer { padding:28px 0 42px; }
   .hero-lead { font-size:14px; }
   .text-link, .footer-inner > a { min-height:44px; display:inline-flex; align-items:center; }
   .hero-actions { flex-direction:column;align-items:flex-start; }
-  .hero-meta { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px; }
+  .hero-meta { grid-template-columns:repeat(2,minmax(0,1fr));gap:16px; }
   .hero-meta strong { font-size:21px; }
   .hero-meta span { font-size:10px; }
   .hero-card-wrap { min-height:390px; }
@@ -480,4 +491,30 @@ footer { padding:28px 0 42px; }
   html { scroll-behavior:auto; }
   *,*::before,*::after { animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important; }
   .reveal { opacity:1;transform:none; }
+}
+
+/* Education cards are scoped to About; work experience keeps its timeline. */
+#about .education-heading { display:flex; align-items:baseline; flex-wrap:wrap; gap:12px 20px; margin:48px 0 20px; }
+.education-heading > span { font:13px var(--font); color:var(--muted); letter-spacing:0; }
+#about .education-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:32px; margin-bottom:32px; padding-top:32px; }
+#about .education-grid .timeline-item { position:relative; }
+#about .education-grid::before { display:block; left:34px; right:28px; top:6px; bottom:auto; width:auto; height:1px; transform:none; background:linear-gradient(90deg,var(--purple),rgba(168,85,247,.12)); }
+#about .education-grid .timeline-item { display:flex; flex-direction:column; gap:20px; padding:28px; border:1px solid var(--border-soft); border-radius:20px; background:var(--panel); }
+#about .education-grid .timeline-item:first-child { border-color:rgba(192,132,252,.28); background:linear-gradient(135deg,rgba(124,58,237,.12),var(--panel)); }
+#about .education-grid .timeline-dot { display:block; position:absolute; left:28px; top:-33px; width:12px; height:12px; margin:0; border:3px solid var(--purple); border-radius:50%; background:var(--bg); box-shadow:0 0 16px rgba(168,85,247,.3); }
+#about .education-grid .timeline-date { display:flex; align-items:center; flex-wrap:wrap; gap:10px; justify-content:space-between; padding:0; font-size:11px; }
+.education-honor { padding:5px 10px; border:1px solid rgba(192,132,252,.2); border-radius:999px; color:var(--purple-3); background:var(--purple-soft); text-transform:none; letter-spacing:0; font-size:11px; }
+#about .education-grid .timeline-content { padding:0; }
+#about .education-grid .company { font-size:10px; letter-spacing:.06em; line-height:1.6; display:block; }
+#about .education-grid h3 { font-size:clamp(20px,2vw,25px); margin:10px 0 12px; }
+#about .education-grid p { margin:0; font-size:13px; }
+@media (max-width:680px) {
+  #about .education-grid { grid-template-columns:1fr; gap:24px; padding-top:0; padding-left:34px; }
+  #about .education-grid::before { left:6px; right:auto; top:28px; bottom:28px; width:1px; height:auto; background:linear-gradient(var(--purple),rgba(168,85,247,.12)); }
+  #about .education-grid .timeline-dot { left:-35px; top:22px; }
+  #about .education-grid .timeline-item { padding:22px; }
+  .about-details > summary { padding:20px 16px; gap:12px; }
+  .disclosure-icon { flex-basis:38px; height:38px; border-radius:11px; font-size:16px; }
+  .disclosure-copy strong { font-size:16px; }
+  .disclosure-copy > span { font-size:12px; }
 }
