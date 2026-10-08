@@ -48,7 +48,7 @@ test('leadership routes support direct visits and shared assets', async () => {
     const home = await (await fetch(base)).text();
     const nav = home.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0];
     assert.deepEqual([...nav.matchAll(/href="#([^"]+)"/g)].map(match => match[1]), ['home', 'about', 'experience', 'projects', 'certifications', 'contact']);
-    assert.equal([...home.matchAll(/class="certificate-photo"/g)].length, 25);
+    assert.equal([...home.matchAll(/class="certificate-photo"/g)].length, 27);
     assert.doesNotMatch(home, /id="(?:services|leadership|beyond-work)"/);
   } finally { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 });

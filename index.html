@@ -86,6 +86,15 @@
       </div>
     </section>
 
+    <aside class="container latest-updates" aria-labelledby="latest-updates-title">
+      <div class="updates-heading">
+        <div><span class="section-index">What’s new</span><h2 id="latest-updates-title">Latest Updates</h2></div>
+        <span class="updates-window">Past 30 days</span>
+      </div>
+      <div id="latestUpdatesList" class="updates-list" aria-live="polite"></div>
+      <p id="latestUpdatesEmpty" class="updates-empty">No recent updates to share. <a class="text-link" href="#certifications">Explore my certifications ↗</a></p>
+    </aside>
+
     <section class="ticker" aria-label="Expertise">
       <div class="ticker-track">
         <span>IT Operations</span><i>✦</i><span>Data Analytics</span><i>✦</i><span>Automation</span><i>✦</i><span>Backend Development</span><i>✦</i><span>IoT</span><i>✦</i><span>Project Management</span><i>✦</i>
@@ -157,63 +166,69 @@
       </div>
 
 
-    <details class="about-details container"><summary><span>Technical capabilities — development, data &amp; automation</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
+    <details class="about-details container"><summary><span>Project management capabilities — planning, coordination &amp; delivery</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
       <div class="details-content">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index">Technical Skills</span>
-            <h2 id="services-title">Applied technical capabilities.</h2>
+            <span class="section-index">Project Management &amp; Technical Skills</span>
+            <h2 id="services-title">Planning projects. Coordinating delivery.</h2>
           </div>
-          <p>Experience with data, workflow automation, application development, and technical project delivery.</p>
+          <p>Project planning, workflow monitoring, team coordination, and stakeholder communication, supported by hands-on development, analytics, and automation skills.</p>
         </div>
         <div class="services-grid">
           <article class="mini-card reveal">
             <div class="icon" aria-hidden="true">01</div>
-            <h3>Data Analytics & Dashboard Development</h3>
-            <p>Turn operational data into clear dashboards, KPI reports, and visual insights that help teams monitor performance and make informed decisions.</p>
-            <div class="project-tags"><span>Power BI</span><span>Excel</span><span>Data Visualization</span><span>KPI Reporting</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">02</div>
-            <h3>Business Process Automation</h3>
-            <p>Reduce repetitive manual work with automated data pipelines, operational tools, and connected workflows across Microsoft 365.</p>
-            <div class="project-tags"><span>Power Automate</span><span>Power Apps</span><span>SharePoint</span><span>Microsoft 365</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">03</div>
-            <h3>Backend & API Development</h3>
-            <p>Build business logic, database structures, APIs, and integrations that support application features and reliable data processing.</p>
-            <div class="project-tags"><span>Python</span><span>PHP</span><span>FastAPI</span><span>SQL</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">04</div>
-            <h3>AI-Enabled Workflow Solutions</h3>
-            <p>Apply AI to reporting and operational workflows to help teams summarize information and reduce recurring reporting effort, drawing on experience building an AI-powered reporting agent.</p>
-            <div class="project-tags"><span>Reporting Agents</span><span>Operational Reporting</span><span>Workflow Integration</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">05</div>
-            <h3>IoT & Hardware Integration</h3>
-            <p>Connect sensors and devices to backend systems for real-time monitoring and automated actions, supported by hands-on delivery of the MediQnect dispenser.</p>
-            <div class="project-tags"><span>ESP32</span><span>MQTT</span><span>Sensor Integration</span><span>Backend Connectivity</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">06</div>
-            <h3>Full-Stack & Web Application Development</h3>
-            <p>Develop client websites and functional web applications, connect frontend interfaces to backend services, and validate functionality through manual and automated testing.</p>
-            <div class="project-tags"><span>JavaScript</span><span>AngularJS</span><span>Bootstrap</span><span>Software Testing</span></div>
-          </article>
-          <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">07</div>
             <h3>Technical Project Management</h3>
             <p>Plan technical delivery, delegate tasks, coordinate developers and hardware teams, track milestones, and communicate progress to keep projects moving.</p>
             <div class="project-tags"><span>Project Planning</span><span>Team Coordination</span><span>Milestone Tracking</span></div>
           </article>
           <article class="mini-card reveal">
-            <div class="icon" aria-hidden="true">08</div>
+            <div class="icon" aria-hidden="true">02</div>
+            <h3>Workflow Monitoring</h3>
+            <p>Use Trello and Jira to monitor project workflows, alongside task tracking and progress monitoring experience.</p>
+            <div class="project-tags"><span>Trello</span><span>Jira</span><span>Workflow Monitoring</span><span>Progress Tracking</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">03</div>
             <h3>Technical Documentation & Stakeholder Communication</h3>
             <p>Explain system architecture and project progress in operational terms, prepare turnover documentation, and help stakeholders understand technical decisions and next steps.</p>
             <div class="project-tags"><span>System Documentation</span><span>Knowledge Transfer</span><span>Stakeholder Presentations</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">04</div>
+            <h3>Data Analytics & Dashboard Development</h3>
+            <p>Turn operational data into clear dashboards, KPI reports, and visual insights that help teams monitor performance and make informed decisions.</p>
+            <div class="project-tags"><span>Power BI</span><span>Excel</span><span>Data Visualization</span><span>KPI Reporting</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">05</div>
+            <h3>Business Process Automation</h3>
+            <p>Reduce repetitive manual work with automated data pipelines, operational tools, and connected workflows across Microsoft 365.</p>
+            <div class="project-tags"><span>Power Automate</span><span>Power Apps</span><span>SharePoint</span><span>Microsoft 365</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">06</div>
+            <h3>Backend & API Development</h3>
+            <p>Build business logic, database structures, APIs, and integrations that support application features and reliable data processing.</p>
+            <div class="project-tags"><span>Python</span><span>PHP</span><span>FastAPI</span><span>SQL</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">07</div>
+            <h3>AI-Enabled Workflow Solutions</h3>
+            <p>Apply AI to reporting and operational workflows to help teams summarize information and reduce recurring reporting effort, drawing on experience building an AI-powered reporting agent.</p>
+            <div class="project-tags"><span>Reporting Agents</span><span>Operational Reporting</span><span>Workflow Integration</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">08</div>
+            <h3>IoT & Hardware Integration</h3>
+            <p>Connect sensors and devices to backend systems for real-time monitoring and automated actions, supported by hands-on delivery of the MediQnect dispenser.</p>
+            <div class="project-tags"><span>ESP32</span><span>MQTT</span><span>Sensor Integration</span><span>Backend Connectivity</span></div>
+          </article>
+          <article class="mini-card reveal">
+            <div class="icon" aria-hidden="true">09</div>
+            <h3>Full-Stack & Web Application Development</h3>
+            <p>Develop client websites and functional web applications, connect frontend interfaces to backend services, and validate functionality through manual and automated testing.</p>
+            <div class="project-tags"><span>JavaScript</span><span>AngularJS</span><span>Bootstrap</span><span>Software Testing</span></div>
           </article>
         </div>
         <div class="services-actions reveal">
@@ -223,17 +238,34 @@
       </div>
     </details>
 
-    <details class="about-details container"><summary><span>Technical Skills / Toolkit — languages, platforms &amp; tools</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
+    <details class="about-details container"><summary><span>Project management toolkit — workflow, collaboration &amp; technical tools</span><span class="disclosure-toggle" aria-hidden="true"></span></summary>
       <div class="details-content">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index">Technical Toolkit</span>
-            <h2>Skills &amp; tools I work with.</h2>
+            <span class="section-index">Project Management Toolkit</span>
+            <h2>Tools for tracking work and coordinating teams.</h2>
           </div>
-          <p>Tools for reporting, workflow automation, collaboration, and software development, supported by my technical and project experience.</p>
+          <p>I use Trello and Jira for workflow monitoring, alongside collaboration, reporting, and technical tools that support project delivery.</p>
         </div>
 
         <div class="skills-grid reveal">
+          <div class="skill-group">
+            <span class="skill-label">Project &amp; Workflow Management</span>
+            <div class="skill-details">
+            <div class="skill-list">
+              <span>Trello</span><span>Jira</span><span>Notion</span><span>Zoom</span>
+            </div>
+            <ul class="tool-experience">
+              <li><strong>Trello - project management sample:</strong> Created a board to organize tasks from planning through completion, assign responsibilities, track deadlines, and monitor progress.</li>
+              <li><strong>Trello &amp; Jira - workflow monitoring:</strong> Use both tools to monitor project workflows.</li>
+            </ul>
+            <details class="tool-samples"><summary>View work samples (1)</summary>
+              <div class="tool-samples-grid">
+                <a class="tool-sample" href="assets/images/tool-samples/trello.png" target="_blank" rel="noopener"><img src="assets/images/tool-samples/trello.png" alt="Trello project and task board" width="1373" height="593" loading="lazy"><span>Trello project and task board <span aria-hidden="true">&#8599;</span></span></a>
+              </div>
+            </details>
+            </div>
+          </div>
           <div class="skill-group">
             <span class="skill-label">Programming</span>
             <div class="skill-list">
@@ -283,22 +315,7 @@
             </ul>
             </div>
           </div>
-          <div class="skill-group">
-            <span class="skill-label">Productivity &amp; Collaboration</span>
-            <div class="skill-details">
-            <div class="skill-list">
-              <span>Notion</span><span>Trello</span><span>Zoom</span>
-            </div>
-            <ul class="tool-experience">
-              <li><strong>Trello - project management sample:</strong> Created a board to organize tasks from planning through completion, assign responsibilities, track deadlines, and monitor progress.</li>
-            </ul>
-            <details class="tool-samples"><summary>View work samples (1)</summary>
-              <div class="tool-samples-grid">
-                <a class="tool-sample" href="assets/images/tool-samples/trello.png" target="_blank" rel="noopener"><img src="assets/images/tool-samples/trello.png" alt="Trello project and task board" width="1373" height="593" loading="lazy"><span>Trello project and task board <span aria-hidden="true">&#8599;</span></span></a>
-              </div>
-            </details>
-            </div>
-          </div>
+
           <div class="skill-group">
             <span class="skill-label">Microsoft 365</span>
             <div class="skill-details">
@@ -348,7 +365,7 @@
           <div class="skill-group" data-competencies>
             <span class="skill-label">Core Competencies</span>
             <div class="skill-list">
-              <span>Data Analytics</span><span>IT Operations</span><span>Backend Development</span><span>Project Management</span><span>Leadership</span><span>Problem-Solving</span>
+              <span>Project Management</span><span>Project Planning</span><span>Task Delegation</span><span>Workflow Monitoring</span><span>Milestone Tracking</span><span>Team Coordination</span><span>Stakeholder Communication</span><span>Leadership</span><span>Problem-Solving</span><span>Data Analytics</span><span>IT Operations</span><span>Backend Development</span>
             </div>
           </div>
         </div>
@@ -550,105 +567,171 @@
             <button class="filter" type="button" data-cert-filter="professional" aria-pressed="false">Professional Skills</button>
           </div>
           <div class="cert-grid">
+            <div data-skills="management" id="bus402-project-management">
+              <img class="certificate-photo" src="assets/images/certificates/bus402-project-management.png" alt="Saylor University BUS402: Project Management certificate of achievement awarded to Luisa Gwyneth Gonzales, October 7, 2026" width="1584" height="1224" loading="lazy">
+              <strong>BUS402: Project Management</strong>
+              <span>Saylor University · October 7, 2026 · Certificate of Achievement</span>
+              <details class="certificate-details"><summary>Course details</summary><span>52 hours · 5.2 continuing education units · Grade: 95.56%</span>
+              <span>Certificate ID: 4045978934LG</span></details>
+              <p class="certificate-caption">Project planning, delivery, and monitoring, supported by communication and business insight.</p>
+              <a class="certificate-view" href="assets/docs/BUS402-Project-Management.pdf" target="_blank" rel="noopener noreferrer" aria-label="View certificate: BUS402: Project Management (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
+            </div>
+            <div data-skills="data" id="data-analytics-fundamentals">
+              <img class="certificate-photo" src="assets/images/certificates/data-analytics-fundamentals.png" alt="DataSense Analytics Inc. Data Analytics Fundamentals certificate of completion awarded to Luisa Gwyneth Gonzales, September 28, 2026" width="1684" height="1190" loading="lazy">
+              <strong>Data Analytics Fundamentals</strong>
+              <span>DataSense Analytics Inc. · September 28, 2026 · Certificate of Completion</span>
+              <p class="certificate-caption">Foundations of data analytics, data cleaning, data analysis, and data visualization.</p>
+              <a class="certificate-view" href="assets/docs/Data-Analytics-Fundamentals.pdf" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Data Analytics Fundamentals (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
+            </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/ai-fundamentals.png" alt="AI Fundamentals: Foundations for Understanding AI certificate awarded to Luisa Gwyneth Gonzales, issued July 7, 2026" width="1584" height="1224" loading="lazy">
               <strong>AI Fundamentals: Foundations for Understanding AI</strong><span>Cisco Networking Academy & IBM SkillsBuild · July 2026</span>
+              <p class="certificate-caption">Foundational concepts for understanding artificial intelligence.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-fundamentals.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI Fundamentals: Foundations for Understanding AI (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="data">
               <img class="certificate-photo" src="assets/images/certificates/data-analytics-essentials.png" alt="Cisco Networking Academy Data Analytics Essentials certificate awarded to Luisa Gwyneth Gonzales, issued May 18, 2026" width="1584" height="1224" loading="lazy">
               <strong>Data Analytics Essentials</strong><span>Cisco Networking Academy & DICT-ITU · May 2026</span>
+              <p class="certificate-caption">Essential concepts for working with and understanding data.</p>
+              <a class="certificate-view" href="assets/images/certificates/data-analytics-essentials.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Data Analytics Essentials (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai development">
               <img class="certificate-photo" src="assets/images/certificates/openai-apis-python.jfif" alt="Codecademy certificate of completion for Using OpenAI APIs: Accessing OpenAI APIs from Python awarded to Luisa Gwyneth Gonzales" width="588" height="465" loading="lazy">
               <strong>Using OpenAI APIs: Accessing OpenAI APIs from Python</strong><span>Codecademy · December 7, 2025 · Completion</span>
+              <p class="certificate-caption">Accessing OpenAI APIs through Python.</p>
+              <a class="certificate-view" href="assets/images/certificates/openai-apis-python.jfif" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Using OpenAI APIs: Accessing OpenAI APIs from Python (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="cloud">
               <img class="certificate-photo" src="assets/images/certificates/implementing-device.png" alt="Implementing Device and Asset Management in Azure IoT Operations — participation certificate awarded to Luisa Gwyneth Gonzales" width="3030" height="2160" loading="lazy">
               <strong>Implementing Device and Asset Management in Azure IoT Operations</strong><span>Styava · November 15, 2025 · Participation</span>
+              <p class="certificate-caption">Participation in a session on device and asset management in Azure IoT Operations.</p>
+              <a class="certificate-view" href="assets/images/certificates/implementing-device.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Implementing Device and Asset Management in Azure IoT Operations (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="development">
               <img class="certificate-photo" src="assets/images/certificates/basics-of-python.png" alt="Basics of Python — completion certificate awarded to Luisa Gwyneth Gonzales" width="1178" height="840" loading="lazy">
               <strong>Basics of Python</strong><span>UniAthena &amp; Cambridge International Qualifications, UK · November 5, 2025 · Completion</span>
+              <p class="certificate-caption">An introduction to Python programming fundamentals.</p>
+              <a class="certificate-view" href="assets/images/certificates/basics-of-python.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Basics of Python (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai management">
               <img class="certificate-photo" src="assets/images/certificates/ai-at-work.png" alt="AI at Work: Smarter Projects, Smarter Teams — participation certificate awarded to Luisa Gwyneth Gonzales" width="3000" height="2121" loading="lazy">
               <strong>AI at Work: Smarter Projects, Smarter Teams</strong><span>Xurpas Inc. &amp; Monday.com · October 28, 2025 · Webinar participation</span>
+              <p class="certificate-caption">A webinar on AI in project work and team collaboration.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-at-work.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI at Work: Smarter Projects, Smarter Teams (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai management">
               <img class="certificate-photo" src="assets/images/certificates/ai-project-manager.png" alt="AI-Powered Project Manager Masterclass — attendance certificate awarded to Luisa Gwyneth Gonzales" width="1876" height="1442" loading="lazy">
               <strong>AI-Powered Project Manager Masterclass</strong><span>Techademy · October 24, 2025 · Attendance</span>
+              <p class="certificate-caption">A masterclass on AI in project management.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-project-manager.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI-Powered Project Manager Masterclass (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/ai-everyone.png" alt="AI + Everyone: Making Everyday Life Smarter — attendance certificate awarded to Luisa Gwyneth Gonzales" width="2688" height="1920" loading="lazy">
               <strong>AI + Everyone: Making Everyday Life Smarter</strong><span>AI CERTs &amp; Empowering Transformation PH · October 16, 2025 · Attendance</span>
+              <p class="certificate-caption">An introductory session on AI in everyday life.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-everyone.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI + Everyone: Making Everyday Life Smarter (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="security">
               <img class="certificate-photo" src="assets/images/certificates/ethical-hacking.png" alt="Ethical Hacking and Responsible Disclosure — participation certificate awarded to Luisa Gwyneth Gonzales" width="1584" height="1224" loading="lazy">
               <strong>Ethical Hacking and Responsible Disclosure</strong><span>West Visayas State University · October 10, 2025 · Webinar participation</span>
+              <p class="certificate-caption">A webinar on ethical hacking and responsible disclosure.</p>
+              <a class="certificate-view" href="assets/images/certificates/ethical-hacking.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Ethical Hacking and Responsible Disclosure (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/learn-chatgpt.png" alt="Learn ChatGPT — participation certificate awarded to Luisa Gwyneth Gonzales" width="1684" height="1191" loading="lazy">
               <strong>Learn ChatGPT</strong><span>DICT – ICT Literacy and Competency Development Bureau · October 6, 2025 · Participation</span>
+              <p class="certificate-caption">An introductory learning session about ChatGPT.</p>
+              <a class="certificate-view" href="assets/images/certificates/learn-chatgpt.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Learn ChatGPT (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="management">
               <img class="certificate-photo" src="assets/images/certificates/agile-scrum.png" alt="Agile Scrum in 60 Minutes — attendance certificate awarded to Luisa Gwyneth Gonzales" width="2000" height="1414" loading="lazy">
               <strong>Agile Scrum in 60 Minutes</strong><span>Six Sigma PH &amp; Scrum Coach ASEAN · October 4, 2025 · Attendance</span>
+              <p class="certificate-caption">A short introductory session on Agile and Scrum.</p>
+              <a class="certificate-view" href="assets/images/certificates/agile-scrum.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Agile Scrum in 60 Minutes (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/dba-artificial-intelligence.png" alt="Live Session – DBA in Artificial Intelligence — participation certificate awarded to Luisa Gwyneth Gonzales" width="1684" height="1190" loading="lazy">
               <strong>Live Session – DBA in Artificial Intelligence</strong><span>UniAthena · September 12, 2025 · Webinar participation</span>
+              <p class="certificate-caption">Participation in a live session on a DBA in artificial intelligence.</p>
+              <a class="certificate-view" href="assets/images/certificates/dba-artificial-intelligence.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Live Session – DBA in Artificial Intelligence (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="security">
               <img class="certificate-photo" src="assets/images/certificates/data-privacy.png" alt="Data Privacy Awareness Information Session — attendance certificate awarded to Luisa Gwyneth Gonzales" width="1191" height="1684" loading="lazy">
               <strong>Data Privacy Awareness Information Session</strong><span>DICT Region VI · September 12, 2025 · Attendance</span>
+              <p class="certificate-caption">An information session on data privacy awareness.</p>
+              <a class="certificate-view" href="assets/images/certificates/data-privacy.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Data Privacy Awareness Information Session (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai data">
               <img class="certificate-photo" src="assets/images/certificates/ai-business-analytics.png" alt="AI in Business Analytics: The Future of Business Planning and Decision-Making — participation certificate awarded to Luisa Gwyneth Gonzales" width="1080" height="810" loading="lazy">
               <strong>AI in Business Analytics: The Future of Business Planning and Decision-Making</strong><span>Ateneo de Manila University – Graduate School of Business · September 4, 2025 · Participation</span>
+              <p class="certificate-caption">A session on AI in business planning, analytics, and decision-making.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-business-analytics.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI in Business Analytics: The Future of Business Planning and Decision-Making (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="professional">
               <img class="certificate-photo" src="assets/images/certificates/it-acquisition.png" alt="Introduction to IT Acquisition — attendance certificate awarded to Luisa Gwyneth Gonzales" width="1685" height="1190" loading="lazy">
               <strong>Introduction to IT Acquisition</strong><span>University of the Philippines – IT Development Center · September 3, 2025 · Webinar attendance</span>
+              <p class="certificate-caption">An introductory webinar on IT acquisition.</p>
+              <a class="certificate-view" href="assets/images/certificates/it-acquisition.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Introduction to IT Acquisition (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="professional">
               <img class="certificate-photo" src="assets/images/certificates/mastering-it-communication.png" alt="Mastering IT Communication: Bridging Devs, Users &amp; Stakeholders — participation certificate awarded to Luisa Gwyneth Gonzales" width="1584" height="1224" loading="lazy">
               <strong>Mastering IT Communication: Bridging Devs, Users &amp; Stakeholders</strong><span>Tech Savvy Code Camp 2025 · August 30, 2025 · Participation</span>
+              <p class="certificate-caption">Communication between developers, users, and stakeholders.</p>
+              <a class="certificate-view" href="assets/images/certificates/mastering-it-communication.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Mastering IT Communication: Bridging Devs, Users &amp; Stakeholders (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/gen-ai-industrial-automation.png" alt="Gen AI Application for Industrial Automation — attendance certificate awarded to Luisa Gwyneth Gonzales" width="1191" height="1684" loading="lazy">
               <strong>Gen AI Application for Industrial Automation</strong><span>Engineering Institute of Technology · August 28, 2025 · Webinar attendance</span>
+              <p class="certificate-caption">A webinar on generative AI applications in industrial automation.</p>
+              <a class="certificate-view" href="assets/images/certificates/gen-ai-industrial-automation.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Gen AI Application for Industrial Automation (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai development">
               <img class="certificate-photo" src="assets/images/certificates/ai-ready-asean.png" alt="Hour of Code Campaign – AI Ready ASEAN — participation certificate awarded to Luisa Gwyneth Gonzales" width="2000" height="1414" loading="lazy">
               <strong>Hour of Code Campaign – AI Ready ASEAN</strong><span>Break The Fake Movement &amp; ASEAN Foundation · August 16, 2025 · Participation</span>
+              <p class="certificate-caption">Participation in the AI Ready ASEAN Hour of Code campaign.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-ready-asean.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Hour of Code Campaign – AI Ready ASEAN (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/machine-learning-ai.png" alt="Fundamentals of Machine Learning &amp; AI — completion certificate awarded to Luisa Gwyneth Gonzales" width="1584" height="1224" loading="lazy">
               <strong>Fundamentals of Machine Learning &amp; AI</strong><span>AWS Training and Certification · August 15, 2025 · Completion</span>
+              <p class="certificate-caption">Foundational learning in machine learning and artificial intelligence.</p>
+              <a class="certificate-view" href="assets/images/certificates/machine-learning-ai.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Fundamentals of Machine Learning &amp; AI (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai development">
               <img class="certificate-photo" src="assets/images/certificates/microsoft-generative-ai-code-camp.png" alt="Microsoft Generative AI for Beginners Code Camp — attendance certificate awarded to Luisa Gwyneth Gonzales" width="2000" height="1414" loading="lazy">
               <strong>Microsoft Generative AI for Beginners Code Camp</strong><span>Microsoft Philippines · August 15, 2025 · Workshop attendance</span>
+              <p class="certificate-caption">Attendance at a beginner-focused generative AI code camp.</p>
+              <a class="certificate-view" href="assets/images/certificates/microsoft-generative-ai-code-camp.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Microsoft Generative AI for Beginners Code Camp (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="development">
               <img class="certificate-photo" src="assets/images/certificates/software-engineering.jfif" alt="Saylor Academy CS302: Software Engineering certificate of achievement awarded to Luisa Gwyneth Gonzales" width="693" height="537" loading="lazy">
               <strong>CS302: Software Engineering</strong><span>Saylor Academy · December 19, 2024 · Achievement</span>
+              <p class="certificate-caption">Course achievement in software engineering.</p>
+              <a class="certificate-view" href="assets/images/certificates/software-engineering.jfif" target="_blank" rel="noopener noreferrer" aria-label="View certificate: CS302: Software Engineering (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="data">
               <img class="certificate-photo" src="assets/images/certificates/power-bi-workshop.png" alt="ExcelHelpline Power BI Data Visualization workshop certificate of completion awarded to Luisa Gwyneth D. Gonzales" width="1440" height="1080" loading="lazy">
               <strong>Power BI Data Visualization Workshop</strong><span>ExcelHelpline · September 14, 2024 · Completion</span>
+              <p class="certificate-caption">A workshop on data visualization with Power BI.</p>
+              <a class="certificate-view" href="assets/images/certificates/power-bi-workshop.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Power BI Data Visualization Workshop (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="data">
               <img class="certificate-photo" src="assets/images/certificates/excel-data-analytics.png" alt="Coursera Introduction to Data Analysis using Microsoft Excel project certificate awarded to Luisa Gwyneth Dela Rosa Gonzales" width="1584" height="1224" loading="lazy">
               <strong>Introduction to Data Analysis using Microsoft Excel</strong><span>Coursera · September 4, 2024 · Project completion</span>
+              <p class="certificate-caption">A guided project introducing data analysis with Microsoft Excel.</p>
+              <a class="certificate-view" href="assets/images/certificates/excel-data-analytics.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: Introduction to Data Analysis using Microsoft Excel (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="ai">
               <img class="certificate-photo" src="assets/images/certificates/ai-for-oceans.jpg" alt="AI for Oceans – Hour of Code — completion certificate awarded to Luisa Gwyneth Gonzales" width="1754" height="1235" loading="lazy">
               <strong>AI for Oceans – Hour of Code</strong><span>Code.org · Completion</span>
+              <p class="certificate-caption">An introductory Hour of Code activity about AI.</p>
+              <a class="certificate-view" href="assets/images/certificates/ai-for-oceans.jpg" target="_blank" rel="noopener noreferrer" aria-label="View certificate: AI for Oceans – Hour of Code (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
             <div data-skills="data">
               <img class="certificate-photo" src="assets/images/certificates/black-holes-bright-stars.png" alt="From Black Holes to Bright Stars: The Analyst’s Mission in Business Success — participation certificate awarded to Luisa Gwyneth Gonzales" width="1440" height="810" loading="lazy">
               <strong>From Black Holes to Bright Stars: The Analyst’s Mission in Business Success</strong><span>Data analytics and business insights seminar · Participation</span>
+              <p class="certificate-caption">A seminar on the analyst&#x27;s role in business insights and success.</p>
+              <a class="certificate-view" href="assets/images/certificates/black-holes-bright-stars.png" target="_blank" rel="noopener noreferrer" aria-label="View certificate: From Black Holes to Bright Stars: The Analyst’s Mission in Business Success (opens in a new tab)" title="View certificate (opens in a new tab)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3l-10 10"/><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></a>
             </div>
           </div>
         </div>
@@ -698,6 +781,8 @@
     <form id="chatForm" class="chat-form"><label class="chat-input-label" for="chatQuestion">Your question</label><div><input id="chatQuestion" type="text" maxlength="300" placeholder="Ask about skills, work, or education…" autocomplete="off" required><button type="submit">Ask</button></div></form>
   </aside>
   <script src="assets/js/kpis.js"></script>
+  <script src="assets/js/updates-data.js"></script>
+  <script src="assets/js/latest-updates.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/chat.js"></script>
   <script>
